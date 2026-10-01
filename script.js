@@ -14,14 +14,15 @@ function saludar() {
 function validarCorreo() {
   let correo = document.getElementById("correo").value.trim();
   let patron = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  let mensaje = document.getElementById("mensajeCorreo");
   if (correo === "") {
-    document.getElementById("mensajeCorreo").innerText =
-      "Debe ingresar un correo.";
+    mensaje.innerText = "Debe ingresar un correo.";
+    mensaje.style.color = "#e74c3c";
   } else if (!patron.test(correo)) {
-    document.getElementById("mensajeCorreo").innerText =
-      "El formato del correo no es válido.";
+    mensaje.innerText = "El formato del correo no es válido.";
+    mensaje.style.color = "#e74c3c";
   } else {
-    document.getElementById("mensajeCorreo").innerText =
-      "Correo registrado correctamente.";
+    mensaje.innerText = "Correo registrado correctamente.";
+    mensaje.style.color = "#27ae60";
   }
 }
