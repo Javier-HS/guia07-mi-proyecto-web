@@ -12,10 +12,14 @@ function saludar() {
 }
 
 function validarCorreo() {
-  let correo = document.getElementById("correo").value;
+  let correo = document.getElementById("correo").value.trim();
+  let patron = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (correo === "") {
     document.getElementById("mensajeCorreo").innerText =
       "Debe ingresar un correo.";
+  } else if (!patron.test(correo)) {
+    document.getElementById("mensajeCorreo").innerText =
+      "El formato del correo no es válido.";
   } else {
     document.getElementById("mensajeCorreo").innerText =
       "Correo registrado correctamente.";
